@@ -19,11 +19,316 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake-cyberpunk.svg?color_snake=%2300ffe7&color_dots=%230b001a,%231e0b3a,%234b197e,%23a72cff,%23ff4fd8
+            dist/github-snake-cyberpunk.svg?color_snake=%23a72cff&color_dots=%230b001a,%231e0b3a,%234b197e,%23a72cff,%23ff4fd8
 
-      - name: Slow down snake animation
+      - name: Read contribution calendar
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          sed -i 's/11900ms/18000ms/g' dist/github-snake-cyberpunk.svg
+          QUERY='query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{weeks{contributionDays{date contributionCount}}}}}}'
+          gh api graphql \
+            -f query="$QUERY" \
+            -f login="${{ github.repository_owner }}" \
+            > contributions.json
+
+      - name: Customize snake and add month labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from xml.sax.saxutils import escape
+          import json
+          import re
+          from datetime import datetime
+
+          svg_path = Path("dist/github-snake-cyberpunk.svg")
+          contributions_path = Path("contributions.json")
+
+          svg = svg_path.read_text(encoding="utf-8")
+          data = json.loads(contributions_path.read_text(encoding="utf-8"))
+
+          # ------------------------------------------------------------
+          # 1. Slow down animation
+          # ------------------------------------------------------------
+          svg = svg.replace("11900ms", "18000ms")
+
+          # ------------------------------------------------------------
+          # 2. Make snake segments look like pixel/grid blocks
+          # ------------------------------------------------------------
+          svg = svg.replace('rx="4.5" ry="4.5"', 'rx="1" ry="1"')
+          svg = svg.replace('rx="4.1" ry="4.1"', 'rx="1" ry="1"')
+          svg = svg.replace('rx="3.6" ry="3.6"', 'rx="1" ry="1"')
+          svg = svg.replace('rx="3.3" ry="3.3"', 'rx="1" ry="1"')
+
+          # ------------------------------------------------------------
+          # 3. Get contribution calendar
+          # ------------------------------------------------------------
+          weeks = (
+              data.get("data", {})
+                  .get("user", {})
+                  .get("contributionsCollection", {})
+                  .get("contributionCalendar", {})
+                  .get("weeks", [])
+          )
+
+          # Map grid position -> month name
+          contribution_months = {}
+
+          for col, week in enumerate(weeks):
+              for row, day in enumerate(week.get("contributionDays", [])):
+                  count = int(day.get("contributionCount", 0))
+
+                  if count > 0:
+                      date_value = day.get("date")
+
+                      if date_value:
+                          month_name = datetime.strptime(
+                              date_value, "%Y-%m-%d"
+                          ).strftime("%B")
+
+                          contribution_months[(col, row)] = month_name
+
+          # ------------------------------------------------------------
+          # 4. Read snake head animation path
+          # ------------------------------------------------------------
+          match = re.search(
+              r'@keyframes\s+s0\{(.*?)\}\.s\.s0',
+              svg,
+              re.DOTALL
+          )
+
+          if not match:
+              raise RuntimeError("Snake head animation was not found.")
+
+          keyframe_body = match.group(1)
+
+          frame_pattern = re.compile(
+              r'([0-9.,%]+)\{'
+              r'transform:translate\('
+              r'(-?\d+(?:\.\d+)?)px,'
+              r'(-?\d+(?:\.\d+)?)px\)'
+              r'\}'
+          )
+
+          frames = []
+
+          for item in frame_pattern.finditer(keyframe_body):
+              percentages = item.group(1).split(",")
+              x = float(item.group(2))
+              y = float(item.group(3))
+
+              for percentage in percentages:
+                  frames.append(
+                      (
+                          float(percentage.rstrip("%")),
+                          x,
+                          y
+                      )
+                  )
+
+          frames.sort(key=lambda item: item[0])
+
+          # ------------------------------------------------------------
+          # 5. Find the exact times where the snake hits a contribution
+          # ------------------------------------------------------------
+          month_events = {}
+
+          for col_row, month_name in contribution_months.items():
+              wanted_col, wanted_row = col_row
+
+              for percentage, x, y in frames:
+                  snake_col = round(x / 16)
+                  snake_row = round(y / 16)
+
+                  if snake_col == wanted_col and snake_row == wanted_row:
+                      month_events.setdefault(month_name, []).append(
+                          percentage
+                      )
+
+          # ------------------------------------------------------------
+          # 6. Build movement animation for the floating month label
+          # ------------------------------------------------------------
+          move_parts = []
+
+          for percentage, x, y in frames:
+              move_parts.append(
+                  f"{percentage:.2f}%"
+                  f"{{transform:translate({x}px,{y}px)}}"
+              )
+
+          move_animation = (
+              "@keyframes monthLabelMove{"
+              + "".join(move_parts)
+              + "}"
+          )
+
+          # ------------------------------------------------------------
+          # 7. Create opacity animation for each month
+          #    Label appears when snake reaches a contribution
+          # ------------------------------------------------------------
+          def merge_intervals(intervals):
+              intervals.sort()
+              merged = []
+
+              for start, end in intervals:
+                  if not merged or start > merged[-1][1]:
+                      merged.append([start, end])
+                  else:
+                      merged[-1][1] = max(merged[-1][1], end)
+
+              return merged
+
+          def build_opacity_animation(name, events):
+              visibility_window = 1.4
+              intervals = []
+
+              for event in events:
+                  start = event - visibility_window
+                  end = event + visibility_window
+
+                  # Handle animation wrap-around.
+                  if start < 0:
+                      intervals.append((0, end))
+                      intervals.append((100 + start, 100))
+                  elif end > 100:
+                      intervals.append((start, 100))
+                      intervals.append((0, end - 100))
+                  else:
+                      intervals.append((start, end))
+
+              intervals = merge_intervals(intervals)
+
+              parts = ["0%{opacity:0}"]
+
+              for start, end in intervals:
+                  parts.append(f"{start:.2f}%{{opacity:1}}")
+                  parts.append(f"{end:.2f}%{{opacity:0}}")
+
+              parts.append("100%{opacity:0}")
+
+              return (
+                  f"@keyframes {name}{{"
+                  + "".join(parts)
+                  + "}"
+              )
+
+          # ------------------------------------------------------------
+          # 8. Build month label SVG elements
+          # ------------------------------------------------------------
+          month_blocks = []
+
+          months_order = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+          ]
+
+          for index, month_name in enumerate(months_order):
+
+              events = month_events.get(month_name, [])
+
+              if not events:
+                  continue
+
+              animation_name = f"monthOpacity{index}"
+
+              safe_month = escape(month_name)
+
+              month_blocks.append(
+                  f'''
+          <g
+            class="month-label"
+            style="animation: monthLabelMove 18000ms linear infinite, {animation_name} 18000ms linear infinite;"
+          >
+            <rect
+              x="-50"
+              y="-29"
+              width="100"
+              height="19"
+              rx="5"
+              fill="#111827"
+              stroke="#ff4fd8"
+              stroke-width="1"
+            />
+
+            <polygon
+              points="0,-10 -4,-6 4,-6"
+              fill="#111827"
+              stroke="#ff4fd8"
+              stroke-width="1"
+            />
+
+            <text
+              x="0"
+              y="-18"
+              text-anchor="middle"
+              font-family="Arial, Helvetica, sans-serif"
+              font-size="11"
+              font-weight="700"
+              fill="#ffffff"
+            >{safe_month}</text>
+          </g>
+                  '''
+              )
+
+          # ------------------------------------------------------------
+          # 9. Add custom CSS + month labels
+          # ------------------------------------------------------------
+          opacity_css = []
+
+          for index, month_name in enumerate(months_order):
+              events = month_events.get(month_name, [])
+
+              if events:
+                  opacity_css.append(
+                      build_opacity_animation(
+                          f"monthOpacity{index}",
+                          events
+                      )
+                  )
+
+          overlay_style = (
+              "<style>"
+              ".month-label{"
+              "pointer-events:none;"
+              "transform-box:fill-box;"
+              "transform-origin:0 0;"
+              "}"
+              + move_animation
+              + "".join(opacity_css)
+              + "</style>"
+          )
+
+          overlay = (
+              overlay_style
+              + '<g id="month-overlay">'
+              + "".join(month_blocks)
+              + "</g>"
+          )
+
+          # Give the labels a little room around the original graph.
+          svg = re.sub(
+              r'viewBox="[^"]*"',
+              'viewBox="-60 -50 960 210"',
+              svg,
+              count=1
+          )
+
+          svg = svg.replace("</svg>", overlay + "</svg>")
+
+          svg_path.write_text(svg, encoding="utf-8")
+
+          print("Contribution month labels added.")
+          print("Detected months:", sorted(month_events.keys()))
+          PY
 
       - name: Publish generated SVG
         uses: crazy-max/ghaction-github-pages@v3.1.0
