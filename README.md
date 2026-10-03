@@ -60,8 +60,9 @@ I like turning ideas into working systems — and then going deeper to understan
 
 <p align="left">
   <img src="https://img.shields.io/badge/Python-111827?style=for-the-badge&logo=python&logoColor=3776AB" alt="Python"/>
+  <img src="https://img.shields.io/badge/C-111827?style=for-the-badge&logo=c&logoColor=A8B9CC" alt="C"/>
   <img src="https://img.shields.io/badge/C%2B%2B-111827?style=for-the-badge&logo=cplusplus&logoColor=00599C" alt="C++"/>
-  <img src="https://img.shields.io/badge/SQL-111827?style=for-the-badge&logo=sqlite&logoColor=003B57" alt="SQL"/>
+  <img src="https://img.shields.io/badge/SQL-111827?style=for-the-badge&logo=sqlite&logoColor=00B8D9" alt="SQL"/>
 </p>
 
 ### AI / ML / Systems
@@ -73,12 +74,26 @@ I like turning ideas into working systems — and then going deeper to understan
   <img src="https://img.shields.io/badge/Git-111827?style=for-the-badge&logo=git&logoColor=F05032" alt="Git"/>
 </p>
 
-### Development
+<p>
+  <code>Neural Networks</code>
+  <code>Tokenization</code>
+  <code>BPE</code>
+  <code>Embeddings</code>
+  <code>Attention</code>
+</p>
+
+### Development Tools
 
 <p align="left">
-  <img src="https://img.shields.io/badge/PySide6-111827?style=for-the-badge&logo=qt&logoColor=41CD52" alt="PySide6"/>
   <img src="https://img.shields.io/badge/VS_Code-111827?style=for-the-badge&logo=visualstudiocode&logoColor=007ACC" alt="VS Code"/>
+  <img src="https://img.shields.io/badge/PyCharm-111827?style=for-the-badge&logo=pycharm&logoColor=21D789" alt="PyCharm"/>
+  <img src="https://img.shields.io/badge/Notepad%2B%2B-111827?style=for-the-badge&logo=notepadplusplus&logoColor=90E59A" alt="Notepad++"/>
+  <img src="https://img.shields.io/badge/PySide6-111827?style=for-the-badge&logo=qt&logoColor=41CD52" alt="PySide6"/>
 </p>
+
+---
+
+
 
 ---
 
