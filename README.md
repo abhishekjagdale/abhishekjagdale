@@ -2,7 +2,7 @@
 
 <p align="center">
   <img
-    src="YOUR_HERO_IMAGE_URL"
+    src="./assets/cyberpunk-glass-hero-v4.svg"
     alt="Abhishek Jagdale — AI • Systems • Software"
     width="100%"
   />
