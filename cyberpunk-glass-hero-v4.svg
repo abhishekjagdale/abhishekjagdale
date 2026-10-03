@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+  <title id="title">Abhishek Jagdale — AI • Systems • Software</title>
+  <desc id="desc">Cyberpunk synthwave background with a centered glassmorphism profile panel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#040012"/><stop offset="0.5" stop-color="#13002e"/><stop offset="1" stop-color="#03111f"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="220" y1="90" x2="1180" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#43206e" stop-opacity="0.68"/><stop offset="0.5" stop-color="#152b67" stop-opacity="0.55"/><stop offset="1" stop-color="#281245" stop-opacity="0.70"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="190" y1="90" x2="1210" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff4fdb"/><stop offset="0.48" stop-color="#b68cff"/><stop offset="1" stop-color="#43e8ff"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="820" y1="20" x2="820" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb7f2"/><stop offset="0.42" stop-color="#ff55df"/><stop offset="1" stop-color="#742cff"/>
+    </linearGradient>
+    <linearGradient id="grid" x1="0" y1="390" x2="1400" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25dffb"/><stop offset="0.5" stop-color="#db3fe9"/><stop offset="1" stop-color="#8c4dff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(760 225) rotate(90) scale(270 470)">
+      <stop stop-color="#a738ff" stop-opacity="0.20"/><stop offset="1" stop-color="#a738ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur26" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="blur10" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <pattern id="stars" width="90" height="70" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="17" r="0.9" fill="#fff" opacity="0.70"/>
+      <circle cx="56" cy="42" r="0.8" fill="#8defff" opacity="0.55"/>
+      <circle cx="81" cy="13" r="0.75" fill="#ffb7f2" opacity="0.55"/>
+    </pattern>
+    <clipPath id="panelClip"><rect x="150" y="78" width="1100" height="370" rx="32"/></clipPath>
+    <style>
+      .sans{font-family:Inter,Arial,Helvetica,sans-serif}
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace}
+    </style>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1400" height="520" rx="32" fill="url(#bg)"/>
+  <rect width="1400" height="340" fill="url(#stars)"/>
+  <ellipse cx="790" cy="215" rx="500" ry="260" fill="url(#glow)"/>
+  <ellipse cx="330" cy="400" rx="330" ry="95" fill="#ff25d7" fill-opacity="0.11" filter="url(#blur26)"/>
+  <ellipse cx="1090" cy="395" rx="310" ry="90" fill="#277cff" fill-opacity="0.10" filter="url(#blur26)"/>
+
+  <!-- SUN -->
+  <circle cx="820" cy="110" r="98" fill="url(#sun)"/>
+  <g fill="#16061f" opacity="0.92">
+    <rect x="723" y="69" width="194" height="9"/>
+    <rect x="723" y="91" width="194" height="8"/>
+    <rect x="723" y="112" width="194" height="7"/>
+    <rect x="723" y="132" width="194" height="6"/>
+    <rect x="723" y="151" width="194" height="5"/>
+  </g>
+
+  <!-- MOUNTAINS -->
+  <path d="M0 365 L110 260 L185 338 L290 215 L400 345 L505 260 L610 365 V430 H0Z" fill="#07102a"/>
+  <path d="M850 370 L940 288 L1010 335 L1090 224 L1170 316 L1250 255 L1400 350 V430 H850Z" fill="#071021"/>
+  <path d="M0 374 L110 291 L185 349 L290 242 L398 355 L500 283" fill="none" stroke="#4662ff" stroke-opacity="0.34" stroke-width="3"/>
+  <path d="M870 379 L940 307 L1010 347 L1090 262 L1170 329 L1250 280 L1400 360" fill="none" stroke="#3bdfff" stroke-opacity="0.28" stroke-width="3"/>
+
+  <!-- DISTANT CITY -->
+  <g fill="#06101f" stroke="#426aff" stroke-opacity="0.28" stroke-width="2">
+    <rect x="1120" y="190" width="42" height="170"/><rect x="1170" y="145" width="58" height="215"/>
+    <rect x="1235" y="220" width="42" height="140"/><rect x="1285" y="118" width="66" height="242"/><rect x="1360" y="175" width="28" height="185"/>
+  </g>
+  <g stroke="#2fe6ff" stroke-width="2" opacity="0.40">
+    <path d="M1128 215 H1153 M1128 237 H1153 M1128 259 H1153"/>
+    <path d="M1180 177 H1218 M1180 200 H1218 M1180 223 H1218"/>
+    <path d="M1295 150 H1341 M1295 174 H1341 M1295 198 H1341"/>
+  </g>
+
+  <!-- GRID FLOOR -->
+  <path d="M0 430 H1400" stroke="#ff47d8" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M0 462 H1400" stroke="#a54eff" stroke-opacity="0.36" stroke-width="2"/>
+  <path d="M0 502 H1400" stroke="#49cfff" stroke-opacity="0.22" stroke-width="2"/>
+  <g stroke="url(#grid)" stroke-opacity="0.40" stroke-width="2">
+    <path d="M40 520 L690 420"/><path d="M190 520 L700 420"/><path d="M340 520 L710 420"/><path d="M490 520 L720 420"/><path d="M640 520 L730 420"/>
+    <path d="M1360 520 L830 420"/><path d="M1210 520 L820 420"/><path d="M1060 520 L810 420"/><path d="M910 520 L800 420"/>
+  </g>
+
+  <!-- GLASS PANEL -->
+  <rect x="150" y="78" width="1100" height="370" rx="32" fill="#b92cff" fill-opacity="0.13" filter="url(#blur10)"/>
+  <rect x="150" y="78" width="1100" height="370" rx="32" fill="url(#glass)" stroke="url(#edge)" stroke-width="2"/>
+  <rect x="163" y="91" width="1074" height="344" rx="24" fill="#fff" fill-opacity="0.025" stroke="#fff" stroke-opacity="0.10"/>
+
+  <g clip-path="url(#panelClip)">
+    <circle cx="450" cy="400" r="180" fill="#ff20d6" fill-opacity="0.10" filter="url(#blur26)"/>
+    <circle cx="1000" cy="145" r="170" fill="#3d78ff" fill-opacity="0.08" filter="url(#blur26)"/>
+    <line x1="170" y1="112" x2="1230" y2="112" stroke="#fff" stroke-opacity="0.10"/>
+    <line x1="170" y1="112" x2="1230" y2="112" stroke="#ff63df" stroke-opacity="0.38" stroke-width="1">
+      <animate attributeName="y1" values="112;425;112" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="112;425;112" dur="4.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- HEADER CHROME -->
+  <circle cx="184" cy="116" r="4.5" fill="#39ffb6"><animate attributeName="opacity" values="1;0.35;1" dur="1.5s" repeatCount="indefinite"/></circle>
+  <text x="202" y="120" class="mono" fill="#ead7ff" font-size="11" letter-spacing="4">WELCOME TO MY SPACE</text>
+  <text x="1025" y="120" class="mono" fill="#baf6ff" font-size="9.5" letter-spacing="1.8">/ / AI SYSTEMS SOFTWARE</text>
+
+  <!-- LEFT CONTENT -->
+  <g transform="translate(202 0)">
+    <g class="sans" font-size="42" font-weight="800">
+      <text x="0" y="178" fill="#ff00d9" opacity="0.85"><animateTransform attributeName="transform" type="translate" values="-2 0;1 1;-2 0" dur="0.2s" repeatCount="indefinite"/>ABHISHEK JAGDALE</text>
+      <text x="0" y="178" fill="#00ffe7" opacity="0.80"><animateTransform attributeName="transform" type="translate" values="2 0;-1 -1;2 0" dur="0.2s" repeatCount="indefinite"/>ABHISHEK JAGDALE</text>
+      <text x="0" y="178" fill="#fff8ff">ABHISHEK JAGDALE</text>
+    </g>
+    <text x="0" y="210" class="mono" fill="#d9fbff" font-size="15" letter-spacing="4.2">AI  •  SYSTEMS  •  SOFTWARE</text>
+    <line x1="0" y1="229" x2="430" y2="229" stroke="#af79ff" stroke-opacity="0.62" stroke-width="2"/>
+    <text x="0" y="258" class="sans" fill="#f5f7ff" font-size="13.5">Building AI systems, developer tools, and experimental software.</text>
+    <text x="0" y="281" class="sans" fill="#c7cfdf" font-size="12.5">Exploring how things work — from systems to language models.</text>
+
+    <!-- buttons -->
+    <rect x="0" y="303" width="210" height="40" rx="11" fill="#ff2bd6" fill-opacity="0.16" stroke="#ff5ee3" stroke-width="1.5"/>
+    <text x="105" y="329" class="mono" text-anchor="middle" fill="#ff9aed" font-size="11" font-weight="700">&lt;/&gt;  VIEW PROJECTS</text>
+    <rect x="224" y="303" width="156" height="40" rx="11" fill="#fff" fill-opacity="0.035" stroke="#edf3ff" stroke-opacity="0.72" stroke-width="1.3"/>
+    <text x="302" y="329" class="mono" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">ABOUT ME</text>
+
+    <!-- compact social row -->
+    <g class="mono" font-size="9.5" text-anchor="middle" fill="#fff">
+      <g transform="translate(0 358)"><rect width="36" height="22" rx="7" fill="#0e172b" fill-opacity="0.70" stroke="#7f91ff" stroke-opacity="0.55"/><text x="18" y="15">GH</text></g>
+      <g transform="translate(42 358)"><rect width="36" height="22" rx="7" fill="#0e172b" fill-opacity="0.70" stroke="#7f91ff" stroke-opacity="0.55"/><text x="18" y="15">in</text></g>
+      <g transform="translate(84 358)"><rect width="36" height="22" rx="7" fill="#0e172b" fill-opacity="0.70" stroke="#7f91ff" stroke-opacity="0.55"/><text x="18" y="15">YT</text></g>
+      <g transform="translate(126 358)"><rect width="36" height="22" rx="7" fill="#0e172b" fill-opacity="0.70" stroke="#7f91ff" stroke-opacity="0.55"/><text x="18" y="15">@</text></g>
+    </g>
+  </g>
+
+  <!-- CENTER DIVIDER -->
+  <line x1="690" y1="150" x2="690" y2="400" stroke="#fff" stroke-opacity="0.16"/>
+
+  <!-- RIGHT INFO CARDS -->
+  <g>
+    <rect x="725" y="150" width="465" height="70" rx="16" fill="#fff" fill-opacity="0.055" stroke="#fff" stroke-opacity="0.11"/>
+    <circle cx="750" cy="176" r="5" fill="#39ffb6"/>
+    <text x="768" y="180" class="mono" fill="#fff" font-size="12" font-weight="700">CURRENTLY BUILDING</text>
+    <text x="768" y="202" class="mono" fill="#cdd6e5" font-size="10.5">LLM / JARVIS  •  MTAD  •  ADVANCED CODER</text>
+
+    <rect x="725" y="232" width="465" height="70" rx="16" fill="#fff" fill-opacity="0.055" stroke="#fff" stroke-opacity="0.11"/>
+    <circle cx="750" cy="258" r="5" fill="#48caff"/>
+    <text x="768" y="262" class="mono" fill="#fff" font-size="12" font-weight="700">CURRENTLY LEARNING</text>
+    <text x="768" y="284" class="mono" fill="#cdd6e5" font-size="10.5">AI / ML  •  SYSTEM DESIGN  •  ALGORITHMS</text>
+
+    <rect x="725" y="314" width="465" height="70" rx="16" fill="#fff" fill-opacity="0.055" stroke="#fff" stroke-opacity="0.11"/>
+    <circle cx="750" cy="340" r="5" fill="#ff4fd8"/>
+    <text x="768" y="344" class="mono" fill="#fff" font-size="12" font-weight="700">2026 / BUILD MODE</text>
+    <text x="768" y="366" class="mono" fill="#cdd6e5" font-size="10.5">BUILD  •  LEARN  •  SHIP  •  REPEAT</text>
+  </g>
+
+  <text x="760" y="411" class="mono" fill="#fff" font-size="13" letter-spacing="1.8">IDEAS → CODE → REALITY</text>
+  <text x="760" y="428" class="mono" fill="#e7c7ff" font-size="8.5" letter-spacing="2.2">UNDERSTAND IT. BUILD IT. IMPROVE IT.</text>
+
+  <!-- corner accents -->
+  <path d="M150 116 H186" stroke="#ff55dc" stroke-width="3"/>
+  <path d="M1214 116 H1250" stroke="#46e6ff" stroke-width="3"/>
+  <rect x="150" y="78" width="1100" height="370" rx="32" fill="none" stroke="#fff" stroke-opacity="0.05">
+    <animate attributeName="stroke-opacity" values="0.05;0.12;0.05" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
