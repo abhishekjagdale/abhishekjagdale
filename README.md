@@ -140,6 +140,7 @@ Algorithmic projects exploring game-engine architecture and search.
 
 ---
 
+
 # 🐍 Contribution Matrix
 
 <p align="center">
@@ -157,6 +158,7 @@ Algorithmic projects exploring game-engine architecture and search.
   &nbsp;&nbsp;
   <sub>More</sub>
 </p>
+
 ---
 
 # 🧭 What I'm Working Toward
