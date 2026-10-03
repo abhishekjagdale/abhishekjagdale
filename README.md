@@ -29,12 +29,12 @@ I like turning ideas into working systems — and then going deeper to understan
 
 # ⚡ Currently Building
 
-| Project | Focus |
-|---|---|
-| 🧠 **LLM / Jarvis** | Exploring tokenization, embeddings, attention, model architecture and personalized AI systems. |
-| 🖥️ **MTAD** | Windows task and focus management with scheduling, process control, notifications and GUI development. |
-| ⚙️ **Advanced Coder** | Exploring program visualization, execution tracing and output/state analysis. |
-| 🏺 **Waves → 3D** | Researching underground imaging concepts and 2D → 3D reconstruction. |
+| Project | Status | Focus |
+|---|---|---|
+| 🧠 **LLM / JARVIS** | 🟢 **Working** | Tokenization, BPE, embeddings, attention and language-model foundations |
+| 🖥️ **MTAD** | 🟡 **Paused** | Windows task management, scheduling, process control and GUI |
+| 🟢 **Go Engine** | 🔵 **Research** | Game-state representation, search and engine architecture |
+| ♟️ **Chess Engine** | 🔵 **Research** | Search, evaluation functions, move generation and optimization |
 
 ---
 
@@ -42,7 +42,7 @@ I like turning ideas into working systems — and then going deeper to understan
 
 **AI / ML**
 
-`Tokenization` • `BPE` • `Embeddings` • `Attention` • `Neural Networks` • `LLM Architecture`
+`Neural Networks` • `Tokenization` • `BPE` • `Embeddings` • `Attention` • `LLM Architecture`
 
 **SYSTEMS**
 
@@ -74,13 +74,7 @@ I like turning ideas into working systems — and then going deeper to understan
   <img src="https://img.shields.io/badge/Git-111827?style=for-the-badge&logo=git&logoColor=F05032" alt="Git"/>
 </p>
 
-<p>
-  <code>Neural Networks</code>
-  <code>Tokenization</code>
-  <code>BPE</code>
-  <code>Embeddings</code>
-  <code>Attention</code>
-</p>
+
 
 ### Development Tools
 
@@ -92,7 +86,6 @@ I like turning ideas into working systems — and then going deeper to understan
 </p>
 
 ---
-
 
 
 ---
