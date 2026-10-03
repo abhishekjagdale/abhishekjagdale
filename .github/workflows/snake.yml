@@ -21,6 +21,10 @@ jobs:
           outputs: |
             dist/github-snake-cyberpunk.svg?color_snake=%2300ffe7&color_dots=%230b001a,%231e0b3a,%234b197e,%23a72cff,%23ff4fd8
 
+      - name: Slow down snake animation
+        run: |
+          sed -i 's/11900ms/18000ms/g' dist/github-snake-cyberpunk.svg
+
       - name: Publish generated SVG
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
