@@ -142,23 +142,6 @@ Algorithmic projects exploring game-engine architecture and search.
 
 # 🐍 Contribution Matrix
 
-<table align="center" width="100%">
-  <tr>
-    <td align="center"><sub>Jan</sub></td>
-    <td align="center"><sub>Feb</sub></td>
-    <td align="center"><sub>Mar</sub></td>
-    <td align="center"><sub>Apr</sub></td>
-    <td align="center"><sub>May</sub></td>
-    <td align="center"><sub>Jun</sub></td>
-    <td align="center"><sub>Jul</sub></td>
-    <td align="center"><sub>Aug</sub></td>
-    <td align="center"><sub>Sep</sub></td>
-    <td align="center"><sub>Oct</sub></td>
-    <td align="center"><sub>Nov</sub></td>
-    <td align="center"><sub>Dec</sub></td>
-  </tr>
-</table>
-
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/abhishekjagdale/abhishekjagdale/output/github-snake-cyberpunk.svg"
@@ -174,7 +157,6 @@ Algorithmic projects exploring game-engine architecture and search.
   &nbsp;&nbsp;
   <sub>More</sub>
 </p>
-
 ---
 
 # 🧭 What I'm Working Toward
