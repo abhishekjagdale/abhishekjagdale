@@ -144,30 +144,7 @@ Algorithmic projects exploring game-engine architecture and search.
 
 ---
 
-# 📊 GitHub Activity
 
----
-
-
-# 🐍 Contribution Matrix
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/abhishekjagdale/abhishekjagdale/output/github-snake-cyberpunk.svg"
-    alt="Cyberpunk GitHub contribution snake"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <sub>Less</sub>
-  &nbsp;&nbsp;
-  🟪 🟪 🟪 🟪 🟪
-  &nbsp;&nbsp;
-  <sub>More</sub>
-</p>
-
----
 
 # 🧭 What I'm Working Toward
 
